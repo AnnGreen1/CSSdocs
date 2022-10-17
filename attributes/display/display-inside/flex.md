@@ -18,9 +18,9 @@
 
 
 在 Flexbox 模型中，有三个核心概念：
-– flex 项（注：也称 flex 子元素），需要布局的元素
-– flex 容器，其包含 flex 项
-– 排列方向（direction），这决定了 flex 项的布局方向
+* flex 项（注：也称 flex 子元素），需要布局的元素
+* flex 容器，其包含 flex 项
+* 排列方向（direction），这决定了 flex 项的布局方向
 
 ##  二、容器属性
 
