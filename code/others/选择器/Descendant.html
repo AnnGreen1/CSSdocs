@@ -5,18 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class selector</title>
+    <title>Descendant selector</title>
     <style>
-        .intro {
-            width: 100px;
-            height: 100px;
+        div p {
             background-color: pink;
         }
     </style>
 </head>
 
 <body>
-    <div class="intro"></div>
+    <div>
+        div标签
+        <p>div标签里的p标签被选中</p>
+    </div>
+    <p>div外的p标签未选中</p>
 </body>
 
 </html>
