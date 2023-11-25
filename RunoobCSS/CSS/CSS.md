@@ -461,7 +461,9 @@ p.number {
 ```
 
 # 链接（link）
-顺序需要遵循爱恨（`L`O`V`E-`H` `A`TE）原则
+
+顺序需要遵循爱恨（ `L` O `V` E- `H`  `A` TE）原则
+
 ```css
 /**
 正常，未访问过的链接 */
@@ -487,3 +489,501 @@ a:active {
     color: #0000FF;
 }
 ```
+
+# 列表
+
+### list-style-type
+
+```css
+none 无标记。 disc 默认。标记是实心圆。 circle 标记是空心圆。 square 标记是实心方块。 decimal 标记是数字。 decimal-leading-zero 0开头的数字标记。(01, 02, 03, 等。) lower-roman 小写罗马数字(i, ii, iii, iv, v, 等。) upper-roman 大写罗马数字(I, II, III, IV, V, 等。) lower-alpha 小写英文字母The marker is lower-alpha (a, b, c, d, e, 等。) upper-alpha 大写英文字母The marker is upper-alpha (A, B, C, D, E, 等。) lower-greek 小写希腊字母(alpha, beta, gamma, 等。) lower-latin 小写拉丁字母(a, b, c, d, e, 等。) upper-latin 大写拉丁字母(A, B, C, D, E, 等。) hebrew 传统的希伯来编号方式 armenian 传统的亚美尼亚编号方式 georgian 传统的乔治亚编号方式(an, ban, gan, 等。) cjk-ideographic 简单的表意数字 hiragana 标记是：a,
+i,
+u,
+e,
+o,
+ka,
+ki,
+等。（日文平假名字符） katakana 标记是：A,
+I,
+U,
+E,
+O,
+KA,
+KI,
+等。（日文片假名字符） hiragana-iroha 标记是：i,
+ro,
+ha,
+ni,
+ho,
+he,
+to,
+等。 （日文平假名序号） katakana-iroha 标记是：I,
+RO,
+HA,
+NI,
+HO,
+HE,
+TO,
+等。（日文片假名序号）
+```
+
+### list-style-position
+
+规定列表中列表项目标记的位置
+
+```css
+ul {
+    /**
+    列表项目标记放置在文本以内，且环绕文本根据标记对齐。 */
+    list-style-position: inside;
+}
+
+ul {
+    /**
+    默认值。保持标记位于文本的左侧。列表项目标记放置在文本以外，且环绕文本不根据标记对齐。 */
+    list-style-position: outside;
+}
+```
+
+### list-style-image 
+
+指定列表中的列表项标记的图像
+
+```css
+ul {
+    list-style-image: url('filename.gif')
+}
+```
+
+# Table（表格）
+
+### border-collapse
+
+```css
+table {
+    border-collapse: collapse;
+}
+```
+
+### text-align & vertical-align
+
+```css
+td {
+    /**
+    水平对齐方式*/
+    text-align: center | left | right;
+    /**
+    垂直对齐方式 */
+    vertical-align: baseline | bottom | sub | super | text-bottom | middle;
+}
+```
+
+# 盒子模型
+
+box-sizing:content-box; （默认值，width/height只包含内容区）
+box-sizing:border-box; （width/height包含内容区、内边距、边框，不包含外边距，不包含外边距的意思只是外边距不在模型的范围内，不是外边距不能设置）
+* Margin(外边距) - 清除边框外的区域，外边距是透明的。
+* Border(边框) - 围绕在内边距和内容外的边框。
+* Padding(内边距) - 清除内容周围的区域，内边距是透明的。
+* Content(内容) - 盒子的内容，显示文本和图像。
+# Border（边框）
+
+### border-style
+
+```css
+div {
+    /**
+    默认无边框 */
+    border-styel: none;
+}
+
+div {
+    /**
+    定义一个点线边框 */
+    border-style: dotted;
+}
+
+div {
+    /**
+    定义虚线边框 */
+    border-style: dashed;
+}
+
+div {
+    /**
+    定义实线边框 */
+    border-style: solid;
+}
+
+div {
+    /**
+    定义两个边框 */
+    border-style: double;
+}
+
+div {
+    /**
+    定义3D沟槽边框 */
+    border-style: groove;
+}
+
+div {
+    /**
+    定义3D脊边框 */
+    border-style: ridge;
+}
+
+div {
+    /**
+    定义3D嵌入边框 */
+    border-style: inset;
+}
+
+div {
+    /**
+    定义3D突出边框 */
+    border-style: outset;
+}
+```
+
+### border-width
+
+```css
+div {
+    /**
+    明确指定宽度值 */
+    border-width: 5px | 1.5em | 1.5cm | 4rem;
+}
+
+div {
+    /**
+    使用border-width关键字
+    规范并没有规定关键字的实际值故在不同浏览器效果是不一样的，但显然 thin≤medium≤thick，并且值在单个文档中是恒定 */
+    border-width: thin | medium | thick;
+}
+```
+
+### border-color
+
+border-color 单独使用是不起作用的，必需先试用 border-style 来设置边框样式
+
+```css
+div {
+    border-color: red | rgb(red, green, blue) | #ffffff | transparent;
+}
+```
+
+### border
+
+通过 border 属性设置边框必需设置 border-style
+
+```css
+div {
+    border: 5px solid red;
+}
+```
+
+### border-radius
+
+```css
+div {
+    border-radius: 5px;
+}
+```
+
+# 轮廓（outline）
+
+轮廓（outline）是绘制于元素周围的一条线，位于**边框边缘的外围**，可起到突出元素的作用。
+
+```css
+div {
+    /**
+    颜色、样式、宽度 */
+    outline: #00FF00 dotted thick;
+}
+
+div {
+    /**
+    轮廓的颜色
+    coloe-name、hex-number、rgb-numbe */
+    outline-color: #00ff00;
+}
+
+div {
+    /**
+    轮廓的样式 */
+    outline-stye: none | dotted | dashed | solid | double | groove | ridge | inset | outset | inherit;
+}
+
+div {
+    /**
+    轮廓的宽度 */
+    outline-width； thin | medium |thick | inherit;
+}
+```
+
+# margin（外边距）
+
+margin(外边距)属性定义元素周围的空间。margin 没有背景颜色，是完全透明的。
+
+# padding（填充）
+
+padding（填充）是一个简写属性，定义元素边框与元素内容之间的空间，即上下左右的内边距。
+
+# 分组和嵌套
+
+`elemnt,element` ： `div,p` 选择所有 `<div>` 和 `<p>` 元素；
+`element element` ： `div p` 选择 `<div>` 内所有的 `p` 元素。
+`element.class` ： `p.hometown` 选择所有 `class="hometown` 的 `<p>` 元素。
+
+# 尺寸（Dimension）
+
+```css
+div {
+    /**
+    设置元素的高度 */
+    height: 100px;
+
+    /**
+    设置行高 */
+    line-height: 90%;
+
+    /**
+    设置元素的最大高度 */
+    max-height: 100px;
+
+    /**
+    设置元素的最大宽度 */
+    max-width: 100px;
+
+    /**
+    设置元素的最小高度 */
+    min-height: 100px;
+
+    /**
+    设置元素最小宽度 */
+    min-width: 100px;
+    /**
+    设置元素的宽度 */
+    width: 100px;
+}
+```
+
+# Display（显示）
+
+`display:none;` 不占局空间，隐藏某个元素，在dom结构中；
+`visibility:hidden;` 占据空间，隐藏某个元素，在dom结构中。
+
+```css
+span {
+    /**
+    显示为块级元素 */
+    display: block;
+}
+
+div {
+    /**
+    显示为内联元素 */
+    display: inline;
+}
+```
+
+# Position（定位）
+
+position属性的五个值：static、relative、fixed、absolute、sticky，设置了 position 属性之后，元素可以使用顶部、底部、左侧、右侧属性定位。
+
+### position
+
+```css
+div {
+    /**
+    默认值，及没有定位，遵循正常的文档流对象 */
+    position: static;
+}
+
+div {
+    /**
+    相对于浏览器窗口位置固定定位 */
+    position: fixed;
+    top: 30px;
+    right: 50px;
+}
+
+div {
+    /**
+    相对于定位元素正常位置定位 */
+    position: relative;
+    left: 20px;
+}
+
+div {
+    /**
+    相对于最近的已定位父元素定位，如果没有已定位的父元素，则相对于 html 定位 */
+    position: absolute;
+    left: 100px;
+    top: 150px;
+}
+
+div {
+    /**
+    依赖于用户的滚动，在 position:relative; 与 position:fixed; 定位之间切换
+    它的行为就像 position:relative; 而当页面滚动超出目标区域时，它的表现就像 position:fixed;，它会固定在目标位置。
+    元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。
+    这个特定阈值指的是 top, right, bottom 或 left 之一，换言之，指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效。否则其行为与相对定位相同。 */
+    position: sticky;
+    top: 0;
+}
+```
+
+### z-index
+
+元素的定位与文档流无关，所以它们可以覆盖页面上的其它元素。z-index属性指定了一个元素的堆叠顺序（哪个元素应该放在前面，或后面）。
+一个元素可以有正数或负数的堆叠顺序。具有更高堆叠顺序的元素总是在较低的堆叠顺序元素的前面。
+
+注意： 如果两个定位元素重叠，没有指定z - index，最后定位在HTML代码中的元素将被显示在最前面。
+
+# Overflow
+
+overflow 属性用于控制内容溢出元素框时显示的方式。
+`overflow: auto;` 和 `overflow: scroll;` 的主要区别在于当内容不超出容器尺寸时是否显示滚动条， `overflow: auto;` 只在需要时才会显示滚动条，而· `overflow: scrol;` 则无论是否需要都会显示滚动条。
+
+```css
+div {
+    /**
+    默认值，内容不会被修剪，会呈现在元素框之外 */
+    overflow: visible;
+}
+
+div {
+    /**
+    内容会被修剪，并且内容是不可见的 */
+    overflow: hidden;
+}
+
+div {
+    /**
+    内容会被修剪，但是浏览器会显示滚动条以便查看剩余内容 */
+    overflow: scroll;
+}
+
+div {
+    /**
+    如果内容会被修剪 ，这浏览器会显示滚动条以便查看剩余内容 */
+}
+```
+
+# Float（浮动）
+
+```css
+img {
+    float: left | right | both | none | inherit;
+}
+```
+
+元素浮动之后，周围的元素会重新排列，为了避免这种情况，使用clear属性清除浮动，clear属性指定元素两侧不能出现浮动元素。
+
+```css
+div {
+    /**
+    清除左浮动 */
+    clear: left;
+}
+
+div {
+    /**
+    清除两侧浮动 */
+    clear: both;
+}
+
+div {
+    /**
+    清除右浮动 */
+    clear: right;
+}
+```
+
+tips：clear的作用就是“清除浮动”，所谓清除浮动不是指清除自己的浮动，是指清除被设置了clear属性的元素的左右元素的浮动，也就是使其float属性“失效”，即时设置了float属性也相当于没有设置的效果。
+
+# 对齐
+1. 元素居中对齐
+要水平居中一个（块级）元素，可以使用过 `margin: auto;` ，如果没有设置 `width` 属性（或者设置100%），居中对齐将不起作用。
+```css 
+ .container {
+
+    width: 80vw;
+    height: 80vh;
+    border: 1px solid pink;
+
+}
+.content {
+
+    width: 100px;
+    height: 200px; 
+    margin: auto;
+    border: 1px solid hotpink;
+
+}
+
+```
+```html
+<div class="container">
+    <div class="content"></div>
+</div>
+```
+
+2. 图片居中对齐
+可以通过display设置图片为块级元素，使其居中对齐。
+
+```css
+div {
+    width: 700px;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+```
+
+```html
+<div class="container">
+    <img src="../imgs/serif.gif" alt="">
+</div>
+```
+
+3. 垂直居中对齐 - 使用padding
+tips: 几乎不会有人用吧？局限性太大了，能否算的上是一种方法都很难说（不过对于行内元素确实可以）
+
+```html
+ <style>
+     .container {
+         padding: 90px 0;
+         height: 50px;
+     }
+ </style>
+ <div class="container">
+     期望此段文本是垂直居中对齐的
+ </div>
+```
+
+4. 垂直居中 - 使用line-height
+通过使line-height等于height来实现垂直居中对齐（仅单行文本有效）
+
+5. 垂直居中 - 使用position和transform
+
+```css
+.center {
+    height: 200px;
+    position: relative;
+    border: 3px solid green;
+}
+
+.center p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+```
+
+# 导航栏
