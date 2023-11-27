@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 40%;
+        }
+
+        .container>div {
+            width: 200px;
+            height: 100px;
+            margin: 30px;
+            border: 30px rgba(200, 100, 100, 0.5) solid;
+            padding: 30px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(./image.jpg);
+        }
+
+        .origin-border {
+            background-origin: border-box;
+        }
+
+        .origin-padding {
+            background-origin: padding-box;
+        }
+
+        .origin-content {
+            background-origin: content-box;
+        }
+
+        .clip-border {
+            background-clip: border-box;
+        }
+
+        .clip-padding {
+            background-clip: padding-box;
+        }
+
+        .clip-content {
+            background-clip: content-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="origin-border"></div>
+        <div class="origin-padding"></div>
+        <div class="origin-content"></div>
+    </div>
+
+    <div class="container">
+
+        <div class="clip-border"></div>
+        <div class="clip-padding"></div>
+        <div class="clip-content"></div>
+    </div>
+</body>
+
+</html>
