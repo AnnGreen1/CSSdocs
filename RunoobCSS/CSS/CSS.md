@@ -987,3 +987,320 @@ tips: 几乎不会有人用吧？局限性太大了，能否算的上是一种�
 ```
 
 # 导航栏
+
+```html
+<ul>
+    <li><a href="#home">主页</a></li>
+    <li><a href="#news">新闻</a></li>
+    <li><a href="#contact">联系</a></li>
+    <li><a href="#about">关于</a></li>
+</ul>
+```
+
+1. 从列表中删除边距和填充
+
+```css
+ul {
+    /**
+     移除列表前小标志。一个导航栏并不需要列表标记 */
+    list-style-type: none;
+    /**
+    移除浏览器的默认设置将边距和填充设置为0 */
+    margin: 0;
+    padding: 0;
+}
+```
+
+2. 垂直的导航栏
+
+```css
+a {
+    /**
+     显示块元素的链接，让整体变为可点击链接区域（不只是文本），它允许我们指定宽度 */
+    display: block;
+    /**
+    请务必指定 <a>元素在垂直导航栏的的宽度。如果省略宽度，IE6可能产生意想不到的效果。 */
+    width: 60px;
+}
+```
+
+3. 通过active类标注当前被选中项
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #f1f1f1;
+        }
+
+        li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>垂直导航条</h2>
+    <p>在点击了选项后，我们可以添加 "active" 类来标准哪个选项被选中。</p>
+
+    <ul>
+        <li><a class="active" href="#home">主页</a></li>
+        <li><a href="#news">新闻</a></li>
+        <li><a href="#contact">联系</a></li>
+        <li><a href="#about">关于</a></li>
+    </ul>
+
+</body>
+
+</html>
+```
+
+4. 两种方法创建水平导航栏
+使用内联
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#home">主页</a></li>
+        <li><a href="#news">新闻</a></li>
+        <li><a href="#contact">联系</a></li>
+        <li><a href="#about">关于</a></li>
+    </ul>
+
+</body>
+
+</html>
+```
+
+使用浮动
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+        }
+
+        a {
+            display: block;
+            width: 60px;
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+
+    <p><b>注意:</b> 如果 !DOCTYPE 没有定义, floating 可以产生意想不到的结果.</p>
+
+    <p>背景颜色添加到链接中显示链接的区域。整个链接区域是可点击的,不仅仅是文本。</p>
+
+    <p><b>注意:</b> overflow:hidden 添加到 ul 元素,以防止 li 元素列表的外出。.</p>
+
+</body>
+
+</html>
+```
+
+# 下拉菜单
+
+基本原理
+1. 首先下拉菜单是display:none;的
+2. 使用:hover伪类改变display为block
+3. 需要把下拉选项（option）放在（select）标签中
+4. option需要使用absolute定位，外部容器需要使用relative定位（应为absolute会相对于第一个非static定位的父级元素定位）
+5. 当出现option之后，因option仍然在select之中，所以鼠标悬浮在option之上仍然有效
+# 提示工具（tooltip）
+
+基本原理和下拉菜单有一点像，区别在于tooltip的位置有四种
+1. 首先tooltip是隐藏的（使用了visibility:hidden;）
+2. 使用:hover伪类改变visibility为visible
+3. 和下拉菜单一样使用定位实现位置依附于外部容器（外部容器使用relative定位，tooltip使用absolute定位）
+4. 通过使用left/right/top/bottom实现tooltip的具体位置
+5. 通过使用伪元素及盒子模型透明掉三边border（不设宽高、内部无内容加，宽高就是0）实现三角形箭头，并设置伪元素定位为absolute，调整位置即可
+6. 可以通过transition设置过渡效果
+# 图片廊
+
+# 图像拼合技术
+也就是雪碧图的使用，通过background-position来显示背景图片的不同位置
+
+# 媒体查询
+
+```css
+/**
+all	用于所有的媒体设备。
+aural	用于语音和音频合成器。
+braille	用于盲人用点字法触觉回馈设备。
+embossed	用于分页的盲人用点字法打印机。
+handheld	用于小的手持的设备。
+print	用于打印机。
+projection	用于方案展示，比如幻灯片。
+screen	用于电脑显示器。
+tty	用于使用固定密度字母栅格的媒体，比如电传打字机和终端。
+tv	用于电视机类型的设备。*/
+@media all | screen | aural | braille | embossed | handheld | print | projection | screen | tty | tv {
+    ...
+}
+```
+
+# 属性选择器
+
+```css
+/**
+属性选择器
+选中所有包含title属性的元素 */
+[titile] {
+    color: blue;
+}
+
+/**
+属性和值选择器 
+选中所有title属性为'runoob'的元素 */
+[title=runoob] {
+    border: 5px slid green;
+}
+
+/**
+属性和值的选择器 - 多值
+选中所有title属性包含'hello' 的元素 */
+[title~=hello] {
+    color: blue;
+}
+
+/**
+属性和值的选择器
+选中lang属性具有真子串'en'的元素 */
+[lang|=en] {
+    color: blue;
+}
+```
+
+# 计数器
+
+CSS计数器通过一个变量来设置，根据规则递增变量。
+CSS计数器使用到以下几个属性：
+* counter-reset：创建或者重置计数器
+* counter-increment：递增变量
+* content：插入生成的内容
+* counter()或counters()函数：将计数器的值添加到元素
+
+```css
+body {
+    counter-reset: section;
+}
+
+h1 {
+    counter-reset: subsection;
+}
+
+h1::before {
+    counter-increment: section;
+    content: "Section "counter(section) ". ";
+}
+
+h2::before {
+    counter-increment: subsection;
+    content: counter(section) "."counter(subsection) " ";
+}
+```
+```html
+<h1>HTML 教程:</h1>
+<h2>HTML 教程</h2>
+<h2>CSS 教程</h2>
+
+<h1>Scripting 教程:</h1>
+<h2>JavaScript</h2>
+<h2>VBScript</h2>
+
+<h1>XML 教程:</h1>
+<h2>XML</h2>
+<h2>XSL</h2>
+
+<p><b>注意:</b> IE8 需要指定 !DOCTYPE 才可以支持该属性。</p>
+```
+
+# 网页布局
+
+# !important
+`!important` 规则用于增加样式的权重。
+
+`!important` 与优先级无关，但它与最终的结果直接相关，使用一个 !important 规则时，此声明将覆盖任何其他声明。
+
+使用 !important 是一个坏习惯，应该尽量避免，因为这破坏了样式表中的固有的级联规则 使得调试找 bug 变得更加困难了。
+
+当两条相互冲突的带有 !important 规则的声明被应用到相同的元素上时，拥有更大优先级的声明将会被采用。
+
+- 一定要优先考虑使用样式规则的优先级来解决问题而不是 !important
+- 只有在需要覆盖全站或外部 CSS 的特定页面中使用 !important
+- 永远不要在你的插件中使用 !important
+- 永远不要在全站范围的 CSS 代码中使用 !important
+
+# CSS实例
+1. 加载进度条
+
+2. 分页样式
+- 分页是由`ul`和`li`、`a`标签实现的
+- 首先要改变`ul`及`li`的样式使其看上去想一个分页：去掉list-style、排成一行
+- 之后修改上一页下一页的箭头及所有`a`标签的样式
+- 之后考虑悬浮时、点击时、选中时`a`标签的效果
+- 之后是教程没有的，即要封装成健壮的组件，考虑props，方法等

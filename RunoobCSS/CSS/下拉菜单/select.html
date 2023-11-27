@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+
+    <style>
+        .container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .options {
+            position: absolute;
+            display: none;
+        }
+
+        .select:hover {
+            color: red;
+        }
+
+        .select:hover .options {
+            display: block;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="select">
+            请选择
+            <div class="options">
+                <div class="option">Vue3</div>
+                <div class="option">React</div>
+                <div class="option">Angular</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
