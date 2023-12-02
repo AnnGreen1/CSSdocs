@@ -410,7 +410,9 @@ div {
 ```
 
 ### rotate()
+
 在一个给定度数顺时针旋转的元素。负值是允许的，这样是元素逆时针旋转。
+
 ```css
 div {
     transform: rotate(30deg);
@@ -418,7 +420,9 @@ div {
 ```
 
 ### scale()
+
 用于修改元素的大小。可以通过向量形式定义的缩放值来放大或缩小元素，同时可以在不同的方向设置不同的缩放值。
+
 ```css
 /**
 x和y方向缩放相同 */
@@ -430,10 +434,303 @@ transform: scale(1.3, 0.4);
 ```
 
 ### skew()
+
 包含两个参数值，分别表示X轴和Y轴倾斜的角度，如果第二个参数为空，则默认为0，参数为负表示向相反方向倾斜。
+
 ```css
-transform: skew(30deg,20deg);
+transform: skew(30deg, 20deg);
 ```
 
 ### matrix()
+
 matrix 方法有六个参数，包含旋转，缩放，移动（平移）和倾斜功能。
+
+```css
+matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())
+```
+
+# 3D转换
+
+```css
+matrix3d(n, n, n, n, n, n,
+    n, n, n, n, n, n, n, n, n, n) 定义 3D 转换，使用 16 个值的 4x4 矩阵。 translate3d(x, y, z) 定义 3D 转化。 translateX(x) 定义 3D 转化，仅使用用于 X 轴的值。 translateY(y) 定义 3D 转化，仅使用用于 Y 轴的值。 translateZ(z) 定义 3D 转化，仅使用用于 Z 轴的值。 scale3d(x, y, z) 定义 3D 缩放转换。 scaleX(x) 定义 3D 缩放转换，通过给定一个 X 轴的值。 scaleY(y) 定义 3D 缩放转换，通过给定一个 Y 轴的值。 scaleZ(z) 定义 3D 缩放转换，通过给定一个 Z 轴的值。 rotate3d(x, y, z, angle) 定义 3D 旋转。 rotateX(angle) 定义沿 X 轴的 3D 旋转。 rotateY(angle) 定义沿 Y 轴的 3D 旋转。 rotateZ(angle) 定义沿 Z 轴的 3D 旋转。 perspective(n) 定义 3D 转换元素的透视视图。
+```
+
+# 过渡
+
+CSS3 过渡是元素从一种样式逐渐改变为另一种的效果。
+
+要实现这一点，必须规定两项内容：
+
+* 指定要添加效果的CSS属性
+* 指定效果的持续时间
+
+```css
+/* Apply to 1 property */
+/* property name | duration */
+transition: margin-right 4s;
+
+/* property name | duration | delay */
+transition: margin-right 4s 1s;
+
+/* property name | duration | timing function */
+transition: margin-right 4s ease-in-out;
+
+/* property name | duration | timing function | delay */
+transition: margin-right 4s ease-in-out 1s;
+
+/* Apply to 2 properties */
+transition: margin-right 4s,
+color 1s;
+
+/* Apply to all changed properties */
+transition: all 0.5s ease-out;
+```
+
+# 动画
+
+@keyframes 规则内指定一个 CSS 样式和动画将逐步从目前的样式更改为新的样式。
+
+当在 @keyframes 创建动画，把它绑定到一个选择器，否则动画不会有任何效果。
+
+指定至少这两个CSS3的动画属性绑定向一个选择器：规定动画的名称、规定动画的时长
+
+注意: 必须定义动画的名称和动画的持续时间。如果省略的持续时间，动画将无法运行，因为默认值是0。
+
+动画是使元素从一种样式逐渐变化为另一种样式的效果。可以改变任意多的样式任意多的次数。使用百分比来规定变化发生的时间，或用关键词 "from" 和 "to"，等同于 0% 和 100%。
+
+0% 是动画的开始，100% 是动画的完成。
+
+为了得到最佳的浏览器支持，应该始终定义 0% 和 100% 选择器。
+
+```css
+/**
+规定一个动画 */
+@keyframes ANIMATION_NAME {
+    from {
+        top: 0px;
+    }
+
+    to {
+        top: 200px;
+    }
+}
+
+/**
+所有动画属性的简写 */
+/* @keyframes duration | easing-function | delay |
+iteration-count | direction | fill-mode | play-state | name */
+animation: 3s ease-in 1s 2 reverse both paused slidein;
+
+/* @keyframes duration | easing-function | delay | name */
+animation: 3s linear 1s slidein;
+
+/* two animations */
+animation: 3s linear slidein,
+3s ease-out 5s slideout;
+
+/**
+规定 @keyframes 动画的名称。 */
+animation-name:mymove;
+
+/**
+规定动画完成一个周期所花费的秒或毫秒。默认是0。*/
+animation-duration:2s;
+
+/**
+规定动画的速度曲线，默认是 “ease” */
+animation-timing-function:linear | ease | ease-in | ease-out | ease-in-out | steps(int, start|end) | cublc-bezier(n, n, n, n);
+
+/**
+定义动画什么时候开始。值单位可以是秒（s）或毫秒（ms）。 */
+animation-delay:2s;
+
+/**
+定义动画应该播放多少次，一个数字或infinite（无限次） */
+animation-iteration-count: n | infinite;
+
+/**
+定义是否循环交替反向播放动画。
+normal 默认值，正常播放
+reverse 反向播放
+altermate 动画在奇数次（1、3、5...）正向播放，在偶数次（2、4、6...）反向播放
+alternate-reverse 动画在奇数次（1、3、5...）反向播放，在偶数次（2、4、6）正向播放 */
+animation-direction: normal|reverse|alternate|alternate-reverse;
+
+/**
+指定动画是否正在运行或已暂停。 */
+animation-play-state:paused | running;
+```
+
+# 多列
+
+```css
+/**
+创建多列 */
+div {
+    column-count: 3
+}
+
+/**
+指定列与列之间的间隙 */
+div {
+    column-gap: 40px;
+}
+
+/**
+指定列与列之间的边框样式 */
+div {
+    column-rule-style: solid | dotted | dashed| double | groove | ridge;
+}
+
+/**
+指定列与列之间的边框厚度 */
+div {
+    column-rule-width: 1px;
+}
+
+/**
+指定列与列之间的边框颜色 */
+div {
+    column-rule-color: lightblue;
+}
+
+/**
+column-rule-* 简写 */
+div {
+    column-rule: 1px solid lightblue;
+}
+
+/**
+指定元素能否跨越所有列 */
+div {
+    column-span: all | none;
+}
+
+/**
+指定列的宽度 */
+div {
+    column-width: 100px;
+}
+```
+
+# 用户界面
+
+### resize
+
+resize不适用于下列元素：
+* 内联元素
+* overflow属性设置为visible的块元素
+
+取值
+* none
+元素不提供用户可控的调整其尺寸的方法
+* both
+元素显示可让用户调整其尺寸的机制，可沿水平和竖直方向调整尺寸。
+* horizontal
+元素显示可让用户沿水平方向调整其尺寸的机制。
+* vertical
+元素显示可让用户沿竖直方向调整其尺寸的机制。
+
+### box-sizing
+
+border-box和content-box如何选择？哪种更好？为什么？
+
+### outline-offset
+
+设置 outline 与一个元素边缘或边框之间的间隙
+outline 是元素的轮廓，悬浮在元素边框之上。元素和其轮廓之间是透明的。也就是说，它们之间的颜色（当outline-offset为0时）会继承父元素的背景色。
+
+# 图片
+
+### filter
+
+filter 属性用为元素(通常是 `<img>` )添加可视效果 (例如：模糊与饱和度) 。
+
+```css
+filter: none | blur() | brightness() | contrast() | drop-shadow() | grayscale() | hue-rotate() | invert() | opacity() | saturate() | sepia() | url();
+```
+
+### 图片 Modal(模态)
+
+```js
+// 获取模态窗口
+var modal = document.getElementById('myModal');
+
+// 获取图片模态框，alt 属性作为图片弹出中文本描述
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function() {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    modalImg.alt = this.alt;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+```
+
+# 按钮
+
+# 分页
+
+# 框大小
+
+# 弹性盒子
+1. align-items和aligh-content有什么区别？
+align-item设置每行内元素在此行的对齐方式；
+align-content设置此行在整体flex盒子的对齐方式。
+
+2. stretch：拉伸每一项，使得项目尺寸接近所在行的尺寸
+
+3. 通过设置盒子为flex布局，并且justifly-content:center和align-items:center可以使得内部元素居中，但是其实外部容器设为flex，内部元素设置为margin:auto;也可以达到水平垂直居中
+
+### flex
+flex属性是flex-grow、flex-shrink、flex-basic属性的简写
+可以使用一个，两个或三个值来指定 flex 属性。
+
+单值语法：值必须是以下之一：
+- 一个 <flex-grow> 的有效值：此时简写会扩展为 flex: <flex-grow> 1 0。
+    - 一个 <flex-basis> 的有效值：此时简写会扩展为 flex: 1 1 <flex-basis>。
+    - 关键字 none 或者全局关键字之一。
+- 双值语法：
+    - 第一个值必须是一个 flex-grow 的有效值。
+    - 第二个值必须是以下之一：
+        - 一个 flex-shrink 的有效值：此时简写会扩展为 flex: <flex-grow> <flex-shrink> 0。
+        - 一个 flex-basis 的有效值：此时简写会扩展为 flex: <flex-grow> 1 <flex-basis>。
+- 三值语法：值必须按照以下顺序指定：
+    1. 一个 flex-grow 的有效值。
+    2. 一个 flex-shrink 的有效值。
+    3. 一个 flex-basis 的有效值。
+
+# 多媒体查询
+目前能用的基本只有
+- all：用于所有设备
+- print：用于打印机和打印预览
+- screen：用于电脑屏幕，平板电脑，智能手机等
+- speech：应用于屏幕阅读器等发声设备
+可能会常用到的媒体功能
+- device-aspect-ratio：输出设备课件宽度与高度的比率
+- device-width：输出设备的屏幕可见宽度
+- device-height：输出设备的屏幕可见高度
+- height	定义输出设备中的页面可见区域高度。
+- max-device-height	定义输出设备的屏幕可见的最大高度。
+- max-device-width	定义输出设备的屏幕最大可见宽度。
+- max-height	定义输出设备中的页面最大可见区域高度。
+- max-width	定义输出设备中的页面最大可见区域宽度。
+- width	定义输出设备中的页面可见区域宽度
+# 网格布局
+上次已看
+
+# 网格容器
+上次已看
+
+# 网格元素
+上次已看

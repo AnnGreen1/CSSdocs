@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .diy {
+            background-color: hotpink;
+            font-size: 20px;
+            border-radius: 10px;
+            border-color: blue;
+            transition-duration: 4s;
+            height: 50px;
+            width: 300px;
+        }
+
+        .diy:hover {
+            background-color: aqua;
+            color: green;
+            box-shadow: 5px rgb(0, 0, 0, 0.5);
+        }
+
+        .disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .arrow{
+            
+        }
+    </style>
+</head>
+
+<body>
+    <button>默认按钮</button>
+    <button class="diy">来diy一个按钮</button>
+    <button class="diy disabled">来diy一个按钮</button>
+
+    <button class="diy arrow">悬浮时添加箭头标记</button>
+</body>
+
+</html>
