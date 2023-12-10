@@ -1080,7 +1080,13 @@ filter: none | blur() | brightness() | contrast() | drop-shadow() | grayscale() 
 
 # flex
 
+flex-grow、flex-shrink 和 flex-basis 属性的简写属性。
+
 # flex-basis
+
+指定了 flex 元素在主轴方向上的初始大小。
+
+> 当一个元素同时被设置了 flex-basis (除值为 auto 外) 和 width (或者在 flex-direction: column 情况下设置了height) , flex-basis 具有更高的优先级。
 
 #  flex-direction
 
@@ -1098,4 +1104,620 @@ lex-flow: flex-direction flex-wrap;
 ```css
 flex-grow: number|initial|inherit;
 ```
-tips：所有元素都设置为`flex-grow:0;`或`flex-grow:1`还是有区别的，前者不会占据其他空间，后者会占据其他空间。
+
+tips：所有元素都设置为 `flex-grow:0;` 或 `flex-grow:1` 还是有区别的，前者不会占据其他空间，后者会占据其他空间。
+
+# flex-shrink
+
+指定了 flex 元素的收缩规则。flex 元素仅在默认宽度之和大于容器的时候才会发生收缩，其收缩的大小是依据 flex-shrink 的值。
+
+#  flex-wrap
+
+```css
+flex-wrap: nowrap|wrap|wrap-reverse|initial|inherit;
+```
+
+#  float
+
+# font
+
+# @font-face 规则
+
+# font-family 
+
+# font-size
+
+#  font-size-adjust 
+
+> 目前只有Firefox支持 font-size-adjust 属性.
+
+```css
+font-size-adjust: number|none|inherit;
+```
+
+#### number
+
+定义字体的 aspect 值比率。 可使用的公式： 首选字体的字体尺寸 * （font-size-adjust 值 / 可用字体的 aspect 值）=可应用到可用字体的字体尺寸 举例： 如果 14px 的 Verdana（aspect 值是 0.58）不可用，但是某个可用的字体的 aspect 值是 0.46，那么替代字体的尺寸将是 14 * (0.58/0.46) = 17.65px。
+
+# font-stretch 
+
+为字体定义一个正常或经过伸缩变形的字体外观，这个属性并不会通过伸展/缩小而改变字体的几何外形，如font-feature-settings和font-variant属性，它仅仅意味着当有多种字体可供选择时，会为字体选择最适合的大小。
+
+```css
+font-stretch: wider|narrower|ultra-condensed|extra-condensed|condensed|semi-condensed|normal|semi-expanded|expanded|extra-expanded|ultra-expanded|inherit;
+```
+
+# font-style
+
+```css
+font-style: normal|italic|oblique|inherit;
+```
+
+# font-variant 
+
+# font-weight
+
+# import 规则
+
+```css
+@import url|string list-of-mediaqueries;
+```
+
+#### url|string	
+
+表示要引入资源地址。这个 URL 可以是绝对路径或者相对路径。 要注意的是这个 URL 不需要指明一个文件； 可以只指明包名，然后合适的文件会被自动选择 (例如 chrome://communicator/skin/)。
+
+#### list-of-mediaqueries	
+
+是一个逗号分隔的媒体查询条件列表，设置 URL 引入的 CSS 规则在什么条件下应用。如果浏览器不支持列表中的任何一条媒体查询条件，就不会引入 URL 指定的 CSS 文件。
+
+#  grid-rows 
+
+> 目前所有主流浏览器都不支持支持grid-rows属性。
+
+# hanging-punctuation 
+
+> 目前所有主流浏览器都不支持支持grid-rows属性。
+
+hanging-punctuation: none|first|last|allow-end|force-end; 
+
+# height
+
+# icon 
+
+> 没有主流浏览器支持icon属性。
+
+#  justify-content 
+
+```css
+justify-content: flex-start|flex-end|center|space-between|space-around|initial|inherit;
+```
+
+# @keyframes
+
+# left 
+
+# letter-spacing
+
+# line-height
+
+# list-style
+
+# list-style-image
+
+# list-style-position
+
+# list-style-type
+
+# margin
+
+# margin-bottom
+
+# margin-left
+
+# margin-right
+
+# margin-top
+
+# max-height
+
+# @media 
+
+# min-height
+
+# min-width 
+
+# mix-blend-mode 
+描述了元素的内容应该与元素的直系父元素的内容和元素的背景如何混合。
+
+```css
+mix-blend-mode: normal;
+mix-blend-mode: multiply;
+mix-blend-mode: screen;
+mix-blend-mode: overlay;
+mix-blend-mode: darken;
+mix-blend-mode: lighten;
+mix-blend-mode: color-dodge mix-blend-mode: color-burn;
+mix-blend-mode: hard-light;
+mix-blend-mode: soft-light;
+mix-blend-mode: difference;
+mix-blend-mode: exclusion;
+mix-blend-mode: hue;
+mix-blend-mode: saturation;
+mix-blend-mode: color;
+mix-blend-mode: luminosity;
+```
+
+# object-fit 
+
+指定可替换元素（例如： `<img>` 或 `<video>` ）的内容应该如何适应到其使用高度和宽度确定的框。
+
+#### fill 
+
+默认，不保证保持原有的比例，内容拉伸填充整个内容容器。
+
+#### contain	
+
+保持原有尺寸比例。内容被缩放。
+
+#### cover	
+
+保持原有尺寸比例。但部分内容可能被剪切。
+
+#### none	
+
+保留原有元素内容的长度和宽度，也就是说内容不会被重置。	
+
+#### scale-down	
+
+保持原有尺寸比例。内容的尺寸与 none 或 contain 中的一个相同，取决于它们两个之间谁得到的对象尺寸会更小一些。	
+
+#### initial	
+
+设置为默认值。
+
+#### inherit	
+
+从该元素的父元素继承属性。
+
+#  object-position
+
+规定了可替换元素的内容，在这里我们称其为对象（即 object-position 中的 object）在其内容框中的位置。可替换元素的内容框中未被对象所覆盖的部分，则会显示该元素的背景。
+
+你还可以使用 object-fit 属性来改变可替换元素的对象的内在的大小（即它看上去的大小）的调整方式，借助拉伸与缩放等使对象更好地适应元素的内容框。
+
+```css
+/* 关键字值 */
+object-position: top;
+object-position: bottom;
+object-position: left;
+object-position: right;
+object-position: center;
+
+/* <percentage> 值 */
+object-position: 25% 75%;
+
+/* <length> 值 */
+object-position: 0 0;
+object-position: 1cm 2cm;
+object-position: 10ch 8em;
+
+/* 边缘偏移值 */
+object-position: bottom 10px right 20px;
+object-position: right 3em bottom 10px;
+object-position: top 0 right 10px;
+
+/* 全局关键字 */
+object-position: inherit;
+object-position: initial;
+object-position: revert;
+object-position: revert-layer;
+object-position: unset;
+```
+
+# nav-down 
+
+> 目前所有主流浏览器都不支持支持nav-down属性。（实际上支持，最好别用）
+
+规定当使用 nav-down 导航键时，向何处进行导航。
+
+# nav-index 
+
+> 目前所有主流浏览器都不支持支持nav-index属性。（实际上支持，最好别用）
+
+指定了连续的导航元素的顺序（"Tab键顺序"）。
+
+# nav-left 
+
+> 别用，不支持。
+
+# nav-right 
+
+> 别用，不支持。
+
+# nav-up 
+
+> 别用，不支持。
+
+# opacity
+
+```css 
+opacity: value|inherit; 
+
+```
+
+#### value	
+
+指定不透明度。从0.0（完全透明）到1.0（完全不透明）
+
+#### inherit	
+
+Opacity属性的值应该从父元素继承
+
+# order
+
+# outline 
+
+# outline-color 
+
+# outline-offset
+
+#  outline-style 
+
+# outline-width
+
+# overflow
+
+# overflow-x
+
+# overflow-y
+
+# padding 
+
+#  padding-bottom 
+
+#  padding-left 
+
+# padding-right 
+
+# padding-top
+
+# page-break-after 
+
+> 没看懂。。
+
+# page-break-before
+
+# page-break-inside 
+
+# perspective 
+
+> 没看懂。。
+
+指定了观察者与 z=0 平面的距离，使具有三维位置变换的元素产生透视效果。z>0 的三维元素比正常大，而 z<0 时则比正常小，大小程度由该属性的值决定。
+
+# perspective-origin
+
+> 没看懂。。
+
+# position
+
+# punctuation-trim
+
+> 任何主流浏览器都不支持punctuation-trim属性。
+
+# quotes 
+
+用于设置引号的样式。
+
+#### none	
+
+规定 "content" 属性的"open-quote" 和 "close-quote" 的值不会产生任何引号。
+
+#### string string string string	
+
+定义要使用的引号。
+
+前两个值规定第一级引用嵌套，后两个值规定下一级引号嵌套。
+
+#### inherit	
+
+规定应该从父元素继承 quotes 属性的值。
+
+#  resize
+
+指定一个元素是否是由用户调整大小的。
+
+#### none	
+
+用户无法调整元素的尺寸。
+
+#### both	
+
+用户可调整元素的高度和宽度。
+
+#### horizontal	
+
+用户可调整元素的宽度。
+
+#### vertical	
+
+用户可调整元素的高度。
+
+# right 
+
+# rotation
+
+> 目前没有浏览器支持 rotation 属性。
+
+# tab-size
+
+用于自定义制表符（U+0009，即tab）的宽度。
+
+#  table-layout 
+
+定义了用于布局表格的单元格、行和列的算法。
+
+#### automatic	
+
+默认。列宽度由单元格内容设定。
+
+#### fixed	
+
+列宽由表格宽度和列宽度设定。
+
+#### inherit	
+
+规定应该从父元素继承 table-layout 属性的值。
+
+#### target 
+
+> 任何主流浏览器都不支持target属性。
+
+#### target-name 
+
+> 任何主流浏览器都不支持target-name属性。
+
+#  target-new
+
+> 任何主流浏览器都不支持target-new 属性。
+
+#  target-position
+
+> 任何主流浏览器都不支持target-position属性。
+# text-align 
+
+# text-align-last
+指定一行或者块中的最后一行在被强制换行之前的对齐规则。
+```css
+text-align-last: auto|left|right|center|justify|start|end|initial|inherit;
+```
+
+#  text-decoration
+
+# text-decoration-color
+
+# text-decoration-line
+
+# text-decoration-style 
+
+# text-indent 
+
+# text-justify
+
+> chrome不支持，别用。
+
+当文本的 text-align 属性被设置为 :justify 时的齐行方法。
+
+```css
+text-justify: auto|inter-word|inter-ideograph|inter-cluster|distribute|kashida|trim;
+```
+
+# text-outline
+
+> 任何主流浏览器都不支持text-outline属性。
+
+# text-overflow
+
+text-overflow 属性指定当文本溢出包含它的元素时，应该如何显示。可以设置溢出后，文本被剪切、显示省略号 (...) 或显示自定义字符串（不是所有浏览器都支持）。
+
+text-overflow 需要配合以下两个属性使用：
+
+* white-space: nowrap; 
+* overflow: hidden; 
+
+```css
+text-overflow: clip|ellipsis|string|initial|inherit;
+```
+
+# text-shadow
+
+#  text-transform
+
+> 任何主流浏览器都不支持text-wrap属性。
+
+# top
+
+# transform
+
+# transform-origin 
+
+# transform-style
+
+# transition
+
+# transition-delay 
+
+# transition-duration
+
+# transition-property
+
+# transition-timing-function 
+
+# unicode-bidi
+
+> 没看懂。
+
+# vertical-align
+
+# visibility 
+
+# white-space
+
+# width 
+
+# word-break 
+
+# word-spacing 
+
+# word-wrap
+
+# z-index
+
+# writing-mode
+
+```css
+writing-mode: horizontal-tb | vertical-rl | vertical-lr | sideways-rl | sideways-lr
+```
+
+#### horizontal-tb
+
+水平方向自上而下的书写方式。即left-right-top-bottom
+
+#### vertical-rl
+
+垂直方向自右而左的书写方式。即 top-bottom-right-left
+
+#### vertical-lr
+
+垂直方向内内容从上到下，水平方向从左到右
+
+#### sideways-rl
+
+内容垂直方向从上到下排列
+
+#### sideways-lr
+
+内容垂直方向从下到上排列
+
+#  grid 
+
+所有网格容器的简写属性，可以用来设置以下属性：
+
+* 显式网格属性： grid-template-rows、grid-template-columns 和 grid-template-areas。
+* 隐式网格属性： grid-auto-rows、grid-auto-columns 和 grid-auto-flow。
+* 间距属性： grid-column-gap 和 grid-row-gap。
+#  gap
+
+用来设置网格行与列之间的间隙，该属性是row-gap and column-gap的简写形式。
+
+# row-gap
+
+指定的行之间的间隙大小。
+`row-gap` 和 `grid-row-gap` 都是用来设置网格布局中行与行之间的间距的属性。它们的区别在于作用对象的不同。
+
+* `row-gap` 用于设置普通的块级元素（非网格元素）中行与行之间的间距，即设置行间距。它是 CSS3 中新增的属性，可以用于所有的块级元素。
+
+* `grid-row-gap` 用于设置网格布局中行与行之间的间距，即设置网格行间距。它是 CSS Grid Layout 中的属性，只能用于网格容器（即 `display: grid;` 或 `display: inline-grid;` 的元素）。
+
+因此，如果你要设置普通的块级元素中行与行之间的间距，应该使用 `row-gap` ；如果你要设置网格布局中行与行之间的间距，应该使用 `grid-row-gap` 。
+
+# grid-area
+
+grid-area 属性指定网格元素在网格布局中的大小和位置，是以下属性的简写属性：
+
+* grid-row-start
+* grid-column-start
+* grid-row-end
+* grid-column-end
+#  grid-auto-columns 
+
+用于设置网格容器中列的默认大小。此属性仅影响未设置大小的列。
+
+#  grid-auto-rows 
+
+用于设置网格容器中行的默认大小。
+
+#  grid-auto-flow
+
+#### row	
+
+默认值。 通过填充每一行来放置网格元素，在必要时增加新列。
+
+#### column	
+
+通过填充每一列来放置网格元素，在必要时增加新列。
+
+#### dense	
+
+该关键字指定自动布局算法使用一种"稠密"堆积算法，如果后面出现了稍小的元素，则会试图去填充网格中前面留下的空白。这样做会填上稍大元素留下的空白，但同时也可能导致原来出现的次序被打乱。
+
+#### row dense	
+
+按行来填充网格中前面留下的空白
+
+#### column dense	
+
+按列来填充网格中前面留下的空白
+
+#  grid-column 
+
+```css
+grid-column: grid-column-start / grid-column-end;
+```
+
+# grid-column-start
+
+定义了网格元素从哪一列开始。
+
+# grid-column-end 
+
+定义了网格元素跨越多少列，或者在哪一列结束。
+
+# grid-column-gap
+
+定义了列之间的网格间距。
+
+# grid-gap 
+
+用来设置网格行与列之间的间隙。
+
+#　grid-row-gap 
+
+# grid-row-end
+
+# grid-row-start
+
+# grid-template
+
+grid-template 是以下属性的简写形式：
+
+* grid-template-rows
+* grid-template-columns
+* grid-template-areas
+# grid-template-areas 
+
+# grid-template-columns
+
+# grid-template-rows 
+
+# grid-row 
+
+# @charset 
+
+@charset 属性指定样式文件(.css 后缀)中使用的字符编码，且只能在 CSS 文件中使用。
+
+它必须是样式表中的第一个元素，而前面不得有任何字符。
+
+如果有多个 @charset 规则被声明，只有第一个会被使用，而且不能在 HTML 元素或 HTML 页面的中使用，即不能在 `<style>` 元素内使用。
+
+# clip-path
+
+使用裁剪方式创建元素的可显示区域。区域内的部分显示，区域外的隐藏。
+
+# pointer-events
+
+指定在什么情况下 (如果有) 某个特定的图形元素可以成为鼠标事件的 target。
+
+# backdrop-filter
+可以让你为一个元素后面区域添加图形效果（如模糊或颜色偏移）。因为它适用于元素背后的所有元素，为了看到效果，必须使元素或其背景至少部分透明。
